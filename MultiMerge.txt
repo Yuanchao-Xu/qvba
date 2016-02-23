@@ -1,0 +1,26 @@
+Sub MultiMerge()
+    Dim column As Integer
+    Dim row As Integer
+    
+    ' for this case we need to merge and center
+    ' along the row, so row doesn't change, but the column
+    row1 = 4
+    row2 = 5
+    
+    For column = 26 To 46
+        Range(Cells(row1, column), Cells(row2, column)).Select
+        With Selection
+            .HorizontalAlignment = xlCenter
+            .VerticalAlignment = xlCenter
+            .WrapText = False
+            .Orientation = 0
+            .AddIndent = False
+            .IndentLevel = 0
+            .ShrinkToFit = False
+            .ReadingOrder = xlContext
+            .MergeCells = False
+    End With
+    Selection.Merge
+    Next
+    
+End Sub
