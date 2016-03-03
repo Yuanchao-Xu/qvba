@@ -1,13 +1,21 @@
-Sub multiMerge()
-    Dim column As Integer
-    Dim row As Integer
+Sub insertAndCopyInNextRow()
+    Dim startRow As Integer
+    Dim startColumn As Integer
     
-    ' for this case we need to merge and center
-    ' along the row, so row doesn't change, but the column
-    row1 = 4
-    row2 = 5
+    ' When it goes to the 2nd row, it does insertion, and copy the 1nd row
+    ' to the inserted row, and go on.
     
-    For column = 26 To 46
+    startColumn = 2
+    startRow = 3
+    
+    While Cells(startColumn, startColumn) <> ""
+        
+    End
+    
+    
+    
+    
+    For i = 3 To 46
         Range(Cells(row1, column), Cells(row2, column)).Select
         With Selection
             .HorizontalAlignment = xlCenter
