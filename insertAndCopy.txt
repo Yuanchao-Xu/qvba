@@ -1,0 +1,29 @@
+Sub insertAndCopy()
+    Dim startRow As Integer
+    Dim startColumn As Integer
+    
+    ' When it goes to the 2nd row, it does insertion, and copy the 1nd row
+    ' to the inserted row, and go on.
+    
+    startColumn = 2
+    startRow = 3
+    endRow = 24
+    
+    
+    ' The first row should be processed separately
+    
+    cellValue = Cells(startRow, startColumn)
+    Cells(startRow + 1, startColumn).Select
+    Selection.Insert Shift:=xlDown, CopyOrigin:=xlFormatFromLeftOrAbove
+    Cells(startRow + 1, startColumn) = cellValue
+    
+    For i = startRow To endRow
+        cellValue = Cells(2 * i - 1, startColumn)
+        Cells(2 * i, startColumn).Select
+        Selection.Insert Shift:=xlDown, CopyOrigin:=xlFormatFromLeftOrAbove
+        Cells(2 * i, startColumn) = cellValue
+    Next
+    
+    
+End Sub
+
