@@ -1,0 +1,42 @@
+Sub addGoogleMap()
+'
+'
+'This function is to quickly add google map hyperlink to the cell
+'the coordinates also come from the cells
+'
+'First to set the target column and start row and end row
+'target column
+    tColumn = 24
+'start row
+    sRow = 10
+'end row
+    eRow = 149
+
+    For i = sRow To eRow
+        'obtain coordinatas
+        lat = Cells(i, tColumn + 1)
+        lon = Cells(i, tColumn + 2)
+        
+        'generate link
+        'z refers to zoom
+        zoo = 15
+        't referes to map type("m" map, "k" satellite, "h" hybrid, "p" terrain, "e" GoogleEarth)
+        t = "k"
+        
+        link1 = "http://maps.google.com/maps?"
+        link2 = "z=" & zoo & "&" & "t=" & t + "&"
+        link3 = "q=loc:" & lat & "+" & lon
+        gooLink = link1 & link2 & link3
+        
+        'get display text
+        disText = Cells(i, tColumn)
+        
+        'add hyperlink
+        Cells(i, tColumn).Select
+        ActiveSheet.Hyperlinks.Add Anchor:=Selection, Address:= _
+        gooLink, TextToDisplay _
+        :=disText
+        
+    Next
+
+End Sub
