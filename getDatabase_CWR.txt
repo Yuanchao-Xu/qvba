@@ -14,20 +14,32 @@ Sub getDatabase_CWR()
 
     If indicator = "GDP" Then
         With ActiveWorkbook.Sheets("GDP")
+            .Cells.Select
+            Selection.ClearContents
             .Range(.Cells(1, 1), .Cells(n, 19)) = Data
         End With
     ElseIf indicator = "water use" Then
         With ActiveWorkbook.Sheets("Water Use")
+            .Cells.Select
+            Selection.ClearContents
             .Range(.Cells(1, 1), .Cells(n, 13)) = Data
         End With
     ElseIf indicator = "water resources" Then
         With ActiveWorkbook.Sheets("Water Resources")
+            .Cells.Select
+            Selection.ClearContents
             .Range(.Cells(1, 1), .Cells(n, 8)) = Data
         End With
     Else
         With ActiveWorkbook.Sheets("Wastewater")
+            .Cells.Select
+            Selection.ClearContents
             .Range(.Cells(1, 1), .Cells(n, 16)) = Data
         End With
     End If
     
+End Sub
+
+Sub install()
+    v = Application.Run("BERT.Call", "install")
 End Sub
