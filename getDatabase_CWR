@@ -1,0 +1,33 @@
+Sub getDatabase_CWR()
+'
+' Macro1 Macro
+
+    indicator = ActiveWorkbook.Sheets("Dashboard").Cells(11, 3)
+    startYear = ActiveWorkbook.Sheets("Dashboard").Cells(11, 4)
+    endYear = ActiveWorkbook.Sheets("Dashboard").Cells(11, 5)
+    
+    n = (endYear - startYear + 1) * 31
+    
+
+    
+    Data = Application.Run("BERT.Call", "getGDP", indicator, startYear, endYear)
+
+    If indicator = "GDP" Then
+        With ActiveWorkbook.Sheets("GDP")
+            .Range(.Cells(1, 1), .Cells(n, 19)) = Data
+        End With
+    ElseIf indicator = "water use" Then
+        With ActiveWorkbook.Sheets("Water Use")
+            .Range(.Cells(1, 1), .Cells(n, 13)) = Data
+        End With
+    ElseIf indicator = "water resources" Then
+        With ActiveWorkbook.Sheets("Water Resources")
+            .Range(.Cells(1, 1), .Cells(n, 8)) = Data
+        End With
+    Else
+        With ActiveWorkbook.Sheets("Wastewater")
+            .Range(.Cells(1, 1), .Cells(n, 16)) = Data
+        End With
+    End If
+    
+End Sub
