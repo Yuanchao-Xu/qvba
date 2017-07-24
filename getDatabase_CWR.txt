@@ -2,9 +2,9 @@ Sub getDatabase_CWR()
 '
 ' Macro1 Macro
 
-    indicator = ActiveWorkbook.Sheets("Dashboard").Cells(11, 3)
-    startYear = ActiveWorkbook.Sheets("Dashboard").Cells(11, 4)
-    endYear = ActiveWorkbook.Sheets("Dashboard").Cells(11, 5)
+    indicator = ActiveWorkbook.Sheets("Dashboard").Cells(23, 3)
+    startYear = ActiveWorkbook.Sheets("Dashboard").Cells(23, 4)
+    endYear = ActiveWorkbook.Sheets("Dashboard").Cells(23, 5)
     
     n = (endYear - startYear + 1) * 31
     
